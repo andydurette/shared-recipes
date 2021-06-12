@@ -2,6 +2,9 @@
 import express from 'express';
 import cors from 'cors';
 
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
 // Request Module/Middleware Dependencies
 import connectDB from './config/connectDB.js';
 import router from './routes/index.js';
@@ -10,6 +13,8 @@ import passportSetup from './middleware/passport/passport.js';
 //Initiate Server
 const PORT = process.env.PORT || 4000;
 const app = express();
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 // Connect to Database
 connectDB();
@@ -25,6 +30,10 @@ if(process.env.NODE_ENV === 'production') {
 
 //Connect to Routes
 app.use(router);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"))
+})
 
 // Listen to requests on server
 app.listen(PORT, () => {
