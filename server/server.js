@@ -27,7 +27,7 @@ if(process.env.NODE_ENV === 'production') {
 app.use(router);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build'))
+    res.sendFile(path.join('../client/build'))
 })
 
 // Listen to requests on server
