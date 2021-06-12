@@ -19,9 +19,9 @@ router.route('/getuser').get((req, res) => {
 router.use('/api', apiRouter);
 router.use('/auth', authRouter);
 
-app.get('*', (req, res) => {
-  res.sendFile('../../client/build');
-})
+// app.get('*', (req, res) => {
+//   res.sendFile('../../client/build');
+// })
 
 // router.route("/").get((req, res) => {
 //   // res.send("Hello World");
