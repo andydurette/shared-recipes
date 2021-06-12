@@ -10,7 +10,9 @@ apiRouter
     const createRecipe = new CreateRecipe({
       user_id: body.user_id ? body.user_id: user_id,
       cuisine: body.cuisine,
-      name: body.name
+      name: body.name,
+      instructions: body.instructions,
+      imageUrl: body.imageUrl,
     })
 
     createRecipe.save()
@@ -24,9 +26,9 @@ apiRouter
 
   apiRouter
   .route('/userRecipe')
-  .get(({body}, res) => {
-
-    CreateRecipe.find({ user_id: body.user_id ? body.user_id: user_id })
+  .get(({query}, res) => {
+    // console.log("query", query)
+    CreateRecipe.find({ user_id: query.user_id })
     .sort({ createdAt: -1 })
     .then((data) => {
       res.json(data);

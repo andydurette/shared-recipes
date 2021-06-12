@@ -33,10 +33,14 @@ authRouter.route('/github/callback',
   });
 
   authRouter.route("/logout").get((req, res) => {
-    if (req.user) {
-        req.logout();
-        res.send("done");
-    }
+    console.log("Hi")
+    // if (req.user) {
+       
+    // }
+    res.status(200);
+    req.logout();
+    res.send("done");
+    // res.redirect('http://localhost:3000');
 });
 
 

@@ -3,20 +3,22 @@
 
 // If they are: they proceed to the page
 // If not: they are redirected to the login page.
-import React, { useContext } from 'react';
-import { myContext } from '../../Context.js';
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectLoginStatus } from '../../features/auth/authSlice';
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
 
   // Add your own authentication on the below line.
-  const userObject = useContext(myContext);
+  const loginStatus = useSelector(selectLoginStatus);
 
   return (
     <Route
       {...rest}
       render={props =>
-        userObject ? (
+        loginStatus ? (
           <Component {...props} />
         ) : (
           <Redirect to={{ pathname: '/login', state: { from: props.location } }} />

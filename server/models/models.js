@@ -25,11 +25,19 @@ const createRecipeSchema = new Schema({
         required: true,
         type: String,
     },
+    imageUrl: {
+        required: true,
+        type: String,
+    },
     cuisine: {
         required: true,
         type: String,
     },
     name: {
+        required: true,
+        type: String,
+    },
+    instructions: {
         required: true,
         type: String,
     },
