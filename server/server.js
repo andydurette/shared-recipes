@@ -2,7 +2,6 @@
 import express from 'express';
 import cors from 'cors';
 
-
 // Request Module/Middleware Dependencies
 import connectDB from './config/connectDB.js';
 import router from './routes/index.js';
@@ -27,7 +26,14 @@ if(process.env.NODE_ENV === 'production') {
 //Connect to Routes
 app.use(router);
 
+// Send every other request to the React app
+// Define any API routes before this runs
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  });
+  
+
 // Listen to requests on server
 app.listen(PORT, () => {
-    console.log("Server Started");
+    console.log(`Server Started on port ${PORT}!`);
 });
