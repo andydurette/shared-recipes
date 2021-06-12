@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Recipe App",
-  "main": "server/server.js",
+  "main": "server.js",
   "scripts": {
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
