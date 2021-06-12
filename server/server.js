@@ -9,6 +9,7 @@ import router from './routes/index.js';
 import passportSetup from './middleware/passport/passport.js';
 
 //Initiate Server
+const PORT = process.env.PORT || 4000;
 const app = express();
 
 // Connect to Database
@@ -23,6 +24,6 @@ app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(router);
 
 // Listen to requests on server
-app.listen(process.env.PORT || 4000, () => {
+app.listen(PORT, () => {
     console.log("Server Started");
 });
