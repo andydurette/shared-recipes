@@ -7,10 +7,10 @@ import authRouter from './auth.js';
 
 const router = express.Router();
 
-router.route("/").get((req, res) => {
-  console.log("Hello World")
-  res.send("Hello World");
-});
+// router.route("/").get((req, res) => {
+//   console.log("Hello World")
+//   res.send("Hello World");
+// });
 
 router.route('/getuser').get((req, res) => {
   res.send(req.user);
@@ -18,6 +18,10 @@ router.route('/getuser').get((req, res) => {
 
 router.use('/api', apiRouter);
 router.use('/auth', authRouter);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join('../../client/build'))
+})
 
 // router.route("/").get((req, res) => {
 //   // res.send("Hello World");

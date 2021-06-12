@@ -26,10 +26,6 @@ if(process.env.NODE_ENV === 'production') {
 //Connect to Routes
 app.use(router);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join('../client/build'))
-})
-
 // Listen to requests on server
 app.listen(PORT, () => {
     console.log(`Server Started on port ${PORT}!`);
