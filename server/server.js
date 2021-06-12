@@ -26,12 +26,7 @@ if(process.env.NODE_ENV === 'production') {
 //Connect to Routes
 app.use(router);
 
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
-  });
-  
+
 
 // Listen to requests on server
 app.listen(PORT, () => {

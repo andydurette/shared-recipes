@@ -5,6 +5,10 @@ import authRouter from './auth.js';
 
 const router = express.Router();
 
+router.route("/").get((req, res) => {
+    res.send("../client/build");
+});
+
 router.route('/getuser').get((req, res) => {
   res.send(req.user);
 });
@@ -12,8 +16,5 @@ router.route('/getuser').get((req, res) => {
 router.use('/api', apiRouter);
 router.use('/auth', authRouter);
 
-// router.route("/").get((req, res) => {
-//   res.send("Hello World");
-// });
 
 export default router;
