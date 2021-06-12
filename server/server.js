@@ -1,9 +1,8 @@
 // Request NPM Module Dependencies
 import express from 'express';
-import cors from 'cors';
-
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import cors from 'cors';
 
 // Request Module/Middleware Dependencies
 import connectDB from './config/connectDB.js';
@@ -13,9 +12,7 @@ import passportSetup from './middleware/passport/passport.js';
 //Initiate Server
 const PORT = process.env.PORT || 4000;
 const app = express();
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
+const __dirname = dirname(fileURLToPath(import.meta.url));
 // Connect to Database
 connectDB();
 
