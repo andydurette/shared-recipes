@@ -6,7 +6,7 @@ import authRouter from './auth.js';
 const router = express.Router();
 
 router.route("/").get((req, res) => {
-    res.send("../client/build/index.html");
+    res.sendFile("../client/build/index.html");
 });
 
 router.route('/getuser').get((req, res) => {
