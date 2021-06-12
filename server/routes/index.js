@@ -20,7 +20,7 @@ router.use('/api', apiRouter);
 router.use('/auth', authRouter);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join('../../client/build'))
+  res.sendFile('../../client/build');
 })
 
 // router.route("/").get((req, res) => {
