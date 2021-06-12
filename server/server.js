@@ -1,7 +1,6 @@
 // Request NPM Module Dependencies
 import express from 'express';
 import cors from 'cors';
-import path from 'path';
 
 // Request Module/Middleware Dependencies
 import connectDB from './config/connectDB.js';
@@ -27,12 +26,9 @@ if(process.env.NODE_ENV === 'production') {
 //Connect to Routes
 app.use(router);
 
-
-// app.use(express.static(path.join(__dirname, '../build')))
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build'))
+    res.sendFile(path.join(__dirname, '../client/build'))
 })
-
 
 // Listen to requests on server
 app.listen(PORT, () => {

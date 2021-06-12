@@ -7,10 +7,10 @@ import authRouter from './auth.js';
 
 const router = express.Router();
 
-// router.route("/").get((req, res) => {
-//   console.log("Hello World")
-//   res.send("Hello World");
-// });
+router.route("/").get((req, res) => {
+  console.log("Hello World")
+  res.send("Hello World");
+});
 
 router.route('/getuser').get((req, res) => {
   res.send(req.user);
