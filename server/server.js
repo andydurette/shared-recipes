@@ -20,6 +20,10 @@ passportSetup(app);
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('../client/build'));
+}
+
 //Connect to Routes
 app.use(router);
 
