@@ -13,9 +13,9 @@ function(req, res) {
     res.redirect('https://shared-recipes.herokuapp.com/');
   }
 
-  if(process.env.NODE_ENV === 'dev') {
-    res.redirect('http://localhost:3000');
-  }
+  // if(process.env.NODE_ENV === 'dev') {
+  //   res.redirect('http://localhost:3000');
+  // }
   
 });
 
