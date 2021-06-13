@@ -5,9 +5,9 @@ import { fileURLToPath } from 'url';
 import cors from 'cors';
 
 // Request Module/Middleware Dependencies
-import connectDB from './config/connectDB.js';
-import router from './routes/index.js';
-import passportSetup from './middleware/passport/passport.js';
+import connectDB from './server/config/connectDB.js';
+import router from './server/routes/index.js';
+import passportSetup from './server/middleware/passport/passport.js';
 
 //Initiate Server
 const PORT = process.env.PORT || 4000;
