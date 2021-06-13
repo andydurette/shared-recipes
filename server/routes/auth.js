@@ -10,8 +10,8 @@ authRouter.route('/google/callback').get(
 function(req, res) {
   // Successful authentication, redirect home.
   console.log(process.env.NODE_ENV);
-  if(process.env.NODE_ENV === 'production') {
-    res.redirect('https://shared-recipes.herokuapp.com/');
+  if(process.env.NODE_ENV !== 'dev') {
+    res.redirect('https://shared-recipes.herokuapp.com');
   }else{
     res.redirect('http://localhost:3000');
   }  
@@ -24,8 +24,8 @@ authRouter.route('/twitter/callback',
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    if(process.env.NODE_ENV === 'production') {
-      res.redirect('https://shared-recipes.herokuapp.com/');
+    if(process.env.NODE_ENV !== 'dev') {
+      res.redirect('https://shared-recipes.herokuapp.com');
     }else{
       res.redirect('http://localhost:3000');
     }  
@@ -38,8 +38,8 @@ authRouter.route('/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    if(process.env.NODE_ENV === 'production') {
-      res.redirect('https://shared-recipes.herokuapp.com/');
+    if(process.env.NODE_ENV !== 'dev') {
+      res.redirect('https://shared-recipes.herokuapp.com');
     }else{
       res.redirect('http://localhost:3000');
     }  
