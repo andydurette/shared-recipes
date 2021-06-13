@@ -10,13 +10,13 @@ authRouter.route('/google/callback').get(
     passport.authenticate('google', { failureRedirect: '/login' }),
 function(req, res) {
   // Successful authentication, redirect home.
-  if(environment === 'production') {
+  // if(environment === 'production') {
     res.redirect('https://shared-recipes.herokuapp.com/');
-  }
+  // }
 
-  if(environment === 'dev') {
-    res.redirect('http://localhost:3000');
-  }
+  // if(environment === 'dev') {
+  //   res.redirect('http://localhost:3000');
+  // }
   
 });
 
