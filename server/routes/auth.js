@@ -2,7 +2,7 @@ import passport from 'passport';
 import express from 'express';
 
 const authRouter = express.Router();
-
+console.log("hiya", process.env.NODE_ENV);
 authRouter.route('/google').get(passport.authenticate('google', { scope: ['profile'] }));
 
 authRouter.route('/google/callback').get(
