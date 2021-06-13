@@ -8,7 +8,8 @@ import axios from 'axios';
     async (payload, thunkAPI) => {
       try {
         const response = await axios.get("/getuser", { withCredentials: true });
-        console.log(response.data);
+        console.log('response', response);
+        console.log('data', response.data);
         return response.data
       } catch (err) {
         console.log(err);
