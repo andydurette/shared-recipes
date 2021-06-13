@@ -9,7 +9,7 @@ export const getUserRecipes = createAsyncThunk(
         const { getState } = thunkAPI;
         const state = getState();
       try {
-        const response = await axios.post("http://localhost:4000/api/userRecipe", { params: {user_id: state.auth.userId}});
+        const response = await axios.post("/api/userRecipe", { params: {user_id: state.auth.userId}});
         console.log(response.data);
         return response.data
       } catch (err) {
