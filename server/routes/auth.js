@@ -1,6 +1,7 @@
 import passport from 'passport';
 import express from 'express';
 
+const environment = process.env.NODE_ENV;
 const authRouter = express.Router();
 console.log("hiya", process.env.NODE_ENV);
 authRouter.route('/google').get(passport.authenticate('google', { scope: ['profile'] }));
@@ -9,13 +10,13 @@ authRouter.route('/google/callback').get(
     passport.authenticate('google', { failureRedirect: '/login' }),
 function(req, res) {
   // Successful authentication, redirect home.
-  if(process.env.NODE_ENV === 'production') {
+  if(environment === 'production') {
     res.redirect('https://shared-recipes.herokuapp.com/');
   }
 
-  // if(process.env.NODE_ENV === 'dev') {
-  //   res.redirect('http://localhost:3000');
-  // }
+  if(environment === 'dev') {
+    res.redirect('http://localhost:3000');
+  }
   
 });
 
