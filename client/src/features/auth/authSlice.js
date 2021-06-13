@@ -21,7 +21,7 @@ import axios from 'axios';
     'auth/logout',
     async (payload, thunkAPI) => {
       try {
-        const response = await axios.get("/auth/logout", { withCredentials: true });
+        const response = await axios.get("http://localhost:4000/auth/logout", { withCredentials: true });
         return response.data
       } catch (err) {
         return thunkAPI.rejectWithValue(err);

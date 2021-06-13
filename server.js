@@ -19,7 +19,11 @@ connectDB();
 // Connect to Middleware
 passportSetup(app);
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+if(process.env.NODE_ENV === 'production') {
+    app.use(cors({ origin: "https://shared-recipes.herokuapp.com/", credentials: true }));
+}else{
+    app.use(cors({ origin: "http://localhost:3000", credentials: true }));  
+}
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, "client", "build")));

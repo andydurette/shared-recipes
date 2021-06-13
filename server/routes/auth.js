@@ -9,7 +9,7 @@ authRouter.route('/google/callback').get(
     passport.authenticate('google', { failureRedirect: '/login' }),
 function(req, res) {
   // Successful authentication, redirect home.
-  res.redirect('https://shared-recipes.herokuapp.com/');
+  res.redirect('http://localhost:3000');
 });
 
 authRouter.route('/twitter', 
