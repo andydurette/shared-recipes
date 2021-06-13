@@ -9,6 +9,7 @@ authRouter.route('/google/callback').get(
     passport.authenticate('google', { failureRedirect: '/login' }),
 function(req, res) {
   // Successful authentication, redirect home.
+  console.log(process.env.NODE_ENV === 'production');
   if(process.env.NODE_ENV === 'production') {
     res.redirect('https://shared-recipes.herokuapp.com/');
   }else{
