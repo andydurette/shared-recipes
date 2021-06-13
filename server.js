@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
 if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, "../", "client", "build")));
+    app.use(express.static(path.join(__dirname, "client", "build")));
 }
 
 //Connect to Routes
@@ -31,7 +31,7 @@ app.use(router);
 // console.log(path.join(__dirname, "../", "client", "build", "index.html"));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "../", "client", "build", "index.html"))
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"))
 })
 
 // Listen to requests on server
