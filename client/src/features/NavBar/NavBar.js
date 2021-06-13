@@ -13,7 +13,7 @@ export default function NavBar() {
 
     const logout = () => {
         console.log("Hi?")
-        axios.get("http://localhost:4000/auth/logout", {
+        axios.get("/auth/logout", {
             withCredentials: true
         }).then((res) => {
             console.log("Hi? again")
