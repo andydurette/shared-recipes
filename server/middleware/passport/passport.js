@@ -1,8 +1,13 @@
 import session from 'express-session';
+import memorystore from 'memorystore';
+
 import passport from 'passport';
 //Import Passport Strategies
 import {googleStrategy, twitterStrategy, githubStrategy} from '../../strategies/authStrategies.js';
 import { User } from '../../models/models.js';
+
+//var MemoryStore = require('memorystore')(session)
+let MemoryStore = memorystore(session);
 
 const passportSetup = (app) => {
     
@@ -17,7 +22,10 @@ const passportSetup = (app) => {
               // sameSite: "none",
               // secure: true,
               maxAge: 1000 * 60 * 60 * 7 // One Week
-            }
+            },
+            store: new MemoryStore({
+              checkPeriod: 86400000 // prune expired entries every 24h
+            }),
         })
     );
     app.use(passport.initialize());
