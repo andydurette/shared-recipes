@@ -9,11 +9,7 @@ authRouter.route('/google/callback').get(
     passport.authenticate('google', { failureRedirect: '/login' }),
 function(req, res) {
   // Successful authentication, redirect home.
-  if(process.env.NODE_ENV === 'production') {
-    res.redirect('https://shared-recipes.herokuapp.com');
-  }else{
-    res.redirect('http://localhost:3000');
-  }  
+  res.redirect('https://shared-recipes.herokuapp.com/');
 });
 
 authRouter.route('/twitter', 
@@ -23,11 +19,7 @@ authRouter.route('/twitter/callback',
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    if(process.env.NODE_ENV === 'production') {
-      res.redirect('https://shared-recipes.herokuapp.com');
-    }else{
-      res.redirect('http://localhost:3000');
-    }  
+    res.redirect('http://localhost:3000');
   });
 
 authRouter.route('/github', 
@@ -37,11 +29,7 @@ authRouter.route('/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    if(process.env.NODE_ENV === 'production') {
-      res.redirect('https://shared-recipes.herokuapp.com');
-    }else{
-      res.redirect('http://localhost:3000');
-    }  
+    res.redirect('http://localhost:3000');
   });
 
   authRouter.route("/logout").get((req, res) => {
