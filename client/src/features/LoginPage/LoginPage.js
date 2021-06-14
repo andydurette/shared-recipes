@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import googleImage from '../../assets/googleImage.png';
 import githubImage from '../../assets/githubImage.png';
 import twitterImage from '../../assets/twitterImage.png';
@@ -6,16 +6,31 @@ import styles from './LoginPage.module.css';
 
 export default function LoginPage() {
 
+    const [siteUrl, setSiteUrl] = useState('');
+
+    useEffect(() => {
+        const siteSettingUrl = window.location.origin;
+        console.log('siteUrl', siteSettingUrl)
+        if(siteSettingUrl === 'http://localhost:3000'){
+            setSiteUrl('http://localhost:4000');
+        }else{
+            setSiteUrl(siteUrl);
+        }
+    }, []);
+
     const googleLogin = () => {
-        window.open("/auth/google", "_self");
+        console.log(`${siteUrl}/auth/google`);
+        window.open(`${siteUrl}/auth/google`, "_self");
     }
 
     const githubLogin = () => {
-        window.open("/auth/github", "_self");
+        const siteUrl = window.location.origin.toString();
+        window.open(`${siteUrl}/auth/github`, "_self");
     }
 
     const twitterLogin = () => {
-        window.location.href = "/auth/twitter"
+        const siteUrl = window.location.origin.toString();
+        window.location.href = `${siteUrl}/auth/twitter`;
     }
 
     return  (
