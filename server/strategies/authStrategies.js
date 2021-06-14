@@ -13,7 +13,8 @@ import { Strategy as GitHubStrategy } from 'passport-github';
 const googleStrategy = new GoogleStrategy({
     clientID: `${process.env.GOOGLE_CLIENT_ID}`,
     clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`,
-    callbackURL: "/auth/google/callback"
+    // callbackURL: "/auth/google/callback"
+    callbackURL: "https://shared-recipes.herokuapp.com/auth/google/callback"
   },
   function(_, __, profile, cb) {
     User.findOne({googleId: profile.id}, async (err, doc) => {
