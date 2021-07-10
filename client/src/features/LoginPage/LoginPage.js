@@ -21,7 +21,12 @@ export default function LoginPage() {
     const googleLogin = () => {
         console.log(`${siteUrl}/auth/google`);
         // window.open(`${siteUrl}/auth/google`, "_self");
-        window.open('https://shared-recipes.herokuapp.com/auth/google', "_self");
+        
+        if(siteUrl === 'https://shared-recipes.herokuapp.com/' ){
+            window.open('https://shared-recipes.herokuapp.com/auth/google', "_self");
+        }else{
+            window.open('http://localhost:4000/auth/google', "_self");
+        }
     }
 
     const githubLogin = () => {

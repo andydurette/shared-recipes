@@ -23,7 +23,7 @@ const googleStrategy = new GoogleStrategy({
       }
 
       if (!doc) {
-        const newUser = new user.User({
+        const newUser = new User({
           googleId: profile.id,
           username: profile.name.givenName
         });
