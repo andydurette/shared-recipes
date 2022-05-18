@@ -3,8 +3,6 @@ import { User } from '../models/models.js';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { Strategy as TwitterStrategy } from 'passport-twitter';
 import { Strategy as GitHubStrategy } from 'passport-github';
-// import dotenv from 'dotenv';
-// dotenv.config()
 
 // Login With Google ->
 // Create A User in MONGODB
@@ -23,7 +21,7 @@ const googleStrategy = new GoogleStrategy({
       }
 
       if (!doc) {
-        const newUser = new user.User({
+        const newUser = new User({
           googleId: profile.id,
           username: profile.name.givenName
         });

@@ -10,7 +10,6 @@ export const getUserRecipes = createAsyncThunk(
         const state = getState();
       try {
         const response = await axios.get("/api/userRecipe", { params: {user_id: state.auth.userId}});
-        console.log(response.data);
         return response.data
       } catch (err) {
         console.log(err);
@@ -19,11 +18,6 @@ export const getUserRecipes = createAsyncThunk(
     },
   );
 
-//   axios.get('/user', {
-//     params: {
-//       ID: 12345
-//     }
-//   })
 
 const initialState = {
     myRecipes: {},

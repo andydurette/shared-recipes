@@ -55,8 +55,13 @@ export default function AddRecipePage() {
     const instanceRef = useRef(null)
 
   async function handleSave() {
-    const savedData = await instanceRef.current.save()
-    console.log(savedData)
+    try {
+      const savedData = await instanceRef.current.save()
+      console.log(savedData);
+    }catch(err) {
+      console.log(`Error: ${err}`);
+    }
+    
    }
 
    let data = { '1': 'test' }
@@ -76,7 +81,11 @@ export default function AddRecipePage() {
             onChange={handleChange}
             /> */}
         </Grid>
-        <Grid item xs={12} className={classes.styleBox}>
+        <Grid container item xs={12} >
+        <Grid item xs={2}>
+          <TextField required id="standard-required" label="Required" defaultValue="Hello World" />
+        </Grid>
+        <Grid item xs={10} className={classes.styleBox}>
             {/* <Typography variant='body2'>Instructions</Typography> */}
             {/* <TextareaAutosize id="instructionField" aria-label="minimum height" rowsMin={3} placeholder="Minimum 3 rows" /> */}
             <EditorJs
@@ -86,6 +95,11 @@ export default function AddRecipePage() {
               data={data}
             />
         </Grid>
+       
+
+        </Grid>
+        
+       
         <Grid item xs={12}>
             <Button  variant="contained" color="primary">Submit</Button>
         </Grid>

@@ -14,7 +14,6 @@ const connectDB = async() => {
         });
     }
     catch (err) {
-        // do something
         console.log(`Error: ${err}`);
     }
 }

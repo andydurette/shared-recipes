@@ -9,13 +9,13 @@ authRouter.route('/google/callback').get(
     passport.authenticate('google', { failureRedirect: '/login' }),
 function(req, res) {
   // Successful authentication, redirect home.
-  // if(process.env.NODE_ENV === 'production') {
+  if(process.env.NODE_ENV === 'production') {
     res.redirect('https://shared-recipes.herokuapp.com');
-  // }
+  }
 
-  // if(process.env.NODE_ENV === 'dev') {
-  //   res.redirect('http://localhost:3000');
-  // }
+  if(process.env.NODE_ENV === 'dev') {
+    res.redirect('http://localhost:3000');
+  }
   
 });
 
@@ -40,14 +40,9 @@ authRouter.route('/github/callback',
   });
 
   authRouter.route("/logout").get((req, res) => {
-    console.log("Hi")
-    // if (req.user) {
-       
-    // }
     res.status(200);
     req.logout();
     res.send("done");
-    // res.redirect('http://localhost:3000');
 });
 
 

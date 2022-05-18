@@ -10,18 +10,22 @@ export default function LoginPage() {
 
     useEffect(() => {
         const siteSettingUrl = window.location.origin;
-        console.log('siteUrl', siteSettingUrl)
         if(siteSettingUrl === 'http://localhost:3000'){
             setSiteUrl('http://localhost:4000');
         }else{
             setSiteUrl(siteUrl);
         }
-    }, []);
+    }, [siteUrl]);
 
     const googleLogin = () => {
         console.log(`${siteUrl}/auth/google`);
         // window.open(`${siteUrl}/auth/google`, "_self");
-        window.open('https://shared-recipes.herokuapp.com/auth/google', "_self");
+        
+        if(siteUrl === 'https://shared-recipes.herokuapp.com/' ){
+            window.open('https://shared-recipes.herokuapp.com/auth/google', "_self");
+        }else{
+            window.open('http://localhost:4000/auth/google', "_self");
+        }
     }
 
     const githubLogin = () => {

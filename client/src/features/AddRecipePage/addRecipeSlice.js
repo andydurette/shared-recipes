@@ -19,12 +19,6 @@ export const getUserRecipes = createAsyncThunk(
     },
   );
 
-//   axios.get('/user', {
-//     params: {
-//       ID: 12345
-//     }
-//   })
-
 const initialState = {
     addRecipes: {},
   };
