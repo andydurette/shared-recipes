@@ -8,11 +8,8 @@ import axios from 'axios';
     async (payload, thunkAPI) => {
       try {
         const response = await axios.get("/getuser", { withCredentials: true });
-        console.log('response', response);
-        console.log('data', response.data);
         return response.data
       } catch (err) {
-        console.log(err);
         return thunkAPI.rejectWithValue(err);
       }
     },
@@ -52,7 +49,6 @@ const authSlice = createSlice({
       if(action.payload === ''){
         state = initialState
       }else{
-        console.log(action.payload);
         state.loggedIn = true;
         state.userId = action.payload._id;
         state.userName = action.payload.username;
